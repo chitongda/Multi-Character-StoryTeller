@@ -1,14 +1,11 @@
 
 # Multi-Character-StoryTeller
 
-示例音频，小说斗破苍穹片段：
+## 示例音频
+点击下面的播放器图标收听音频，小说斗破苍穹片段合成：
 <!-- <audio controls>
   <source src="斗破苍穹-5-Part.wav" type="audio/mpeg">
 </audio> -->
-
-## 音频示例
-
-点击下面的播放器图标收听音频：
 
 [![音频播放器](https://www.example.com/audio-player-icon.png)](https://github.com/ABexit/Multi-Character-StoryTeller/blob/main/%E6%96%97%E7%A0%B4%E8%8B%8D%E7%A9%B9-5-Part.wav)
 
