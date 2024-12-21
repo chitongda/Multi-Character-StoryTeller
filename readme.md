@@ -2,9 +2,15 @@
 # Multi-Character-StoryTeller
 
 示例音频，小说斗破苍穹片段：
-<audio controls>
+<!-- <audio controls>
   <source src="斗破苍穹-5-Part.wav" type="audio/mpeg">
-</audio>
+</audio> -->
+
+## 音频示例
+
+点击下面的播放器图标收听音频：
+
+[![音频播放器](https://www.example.com/audio-player-icon.png)](https://github.com/ABexit/Multi-Character-StoryTeller/blob/main/%E6%96%97%E7%A0%B4%E8%8B%8D%E7%A9%B9-5-Part.wav)
 
 多角色小说合成，整体流程图如下，可从网络获取喜欢音色，并自定义至指定小说角色。
 
