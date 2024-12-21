@@ -3,7 +3,7 @@
 
 示例音频，小说斗破苍穹片段：
 <audio controls>
-  <source src="./斗破苍穹-5-Part.wav" type="audio/mpeg">
+  <source src="斗破苍穹-5-Part.wav" type="audio/mpeg">
 </audio>
 
 多角色小说合成，整体流程图如下，可从网络获取喜欢音色，并自定义至指定小说角色。
