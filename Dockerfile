@@ -5,9 +5,12 @@ FROM python:3.10
 WORKDIR /app
 
 # 更新系统并安装系统级依赖，包含 portaudio19-dev
-RUN apt-get update && apt-get install -y \
+# 临时忽略 GPG 验证（仅建议测试环境使用）
+RUN apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true && \
+    apt-get install -y \
     ffmpeg \
     portaudio19-dev \
+    wget  # 安装 wget 用于下载 Anaconda
     && rm -rf /var/lib/apt/lists/*
 
 # 安装 Anaconda
@@ -30,14 +33,13 @@ ENV PATH=$CONDA_PREFIX/bin:$PATH
 RUN pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cu118
 
 # 简易版本安装，不使用 cosyvoice 时的依赖项
-RUN pip install edge-tts==6.1.17 funasr==1.1.12 ffmpeg==1.4 opencv-python==4.10.0.84 transformers==4.45.2 webrtcvad==2.0.10 qwen-vl-utils==0.0.8 pygame==2.6.1 langid==1.1.6 langdetect==1.0.9 accelerate==0.33.0 PyAudio==0.2.14
+COPY requirements_simple.txt .
+RUN pip install -r requirements_simple.txt
 
 # 安装 cosyvoice 依赖库
-RUN conda install -c conda-forge pynini=2.1.6
-RUN pip install WeTextProcessing --no-deps
-
-# 安装 cosyvoice 其它依赖项
-RUN pip install HyperPyYAML==1.2.2 modelscope==1.15.0 onnxruntime==1.19.2 openai-whisper==20231117 importlib_resources==6.4.5 sounddevice==0.5.1 matcha-tts==0.0.7.0
+COPY requirements_cosyvoice.txt .
+RUN conda install -c conda-forge pynini=2.1.6 && \
+    pip install -r requirements_cosyvoice.txt --no-deps
 
 # 复制项目文件到工作目录
 COPY . .
