@@ -10,7 +10,7 @@ RUN apt-get update -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowD
     apt-get install -y \
     ffmpeg \
     portaudio19-dev \
-    wget  # 安装 wget 用于下载 Anaconda
+    wget  \
     && rm -rf /var/lib/apt/lists/*
 
 # 安装 Anaconda
